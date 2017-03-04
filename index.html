@@ -18,7 +18,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-newspaper-o"></i> Search Parameters</h3>
             </div>
-                <div id="search" class="panel-body">
+                <div class="panel-body">
 
                     <span>Search Term:</span>
                     <input type="text" class="form-control" id="searchTerm">
@@ -36,11 +36,21 @@
                     <span>End Year (Optional):</span>
                     <input type="text" class="form-control" id="endYear">
                     <br>
-                    <button type="button" class="btn btn-default">Search</button>
-                    <button type="button" class="btn btn-default">Clear Results</button>
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
+                    <button type="button" class="btn btn-default" id="clear"><span class="glyphicon glyphicon-trash"></span> Clear Results</button>
 
                 </div>
+
         </div>
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-list-alt"></span> Top Articles
+                        </div>
+                            <div class="panel-body" id="articles"></div>
+                    </div>
+
     </div>
 
 
