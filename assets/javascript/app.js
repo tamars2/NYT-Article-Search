@@ -22,7 +22,7 @@ $('#search').on("click", function(){
 	//build query url
 	var newQuery = queryURL + "q=" + searchTerm + "&?begin_date=" + startYear + "&?end_date" + endYear + "&" + apiKey;
 	//qty of records not working yet
-	// "&?page=" + numRecords + 
+	// "&?page=" + numRecords +
 
 	//make the call and promise
 	$.ajax({
