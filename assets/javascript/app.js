@@ -1,3 +1,5 @@
+//partially working, need to fix date format and number of articles requested, among other things..
+
 // set api key
 var apiKey = "api-key=12500f997ba043fca26ead8c403c8e7b";
 // this is the first portion of url to query
@@ -21,6 +23,7 @@ $('#search').on("click", function(){
 
 	//build query url
 	var newQuery = queryURL + "q=" + searchTerm + "&?begin_date=" + startYear + "&?end_date" + endYear + "&" + apiKey;
+	console.log(newQuery);
 	//qty of records not working yet
 	// "&?page=" + numRecords +
 
@@ -30,11 +33,20 @@ $('#search').on("click", function(){
 		method: "GET"
 	}).done(function(NYT) {
 		console.log(NYT);
-		//stringify the title so we can send it to the DOM
+		//stringify the results so we can send it to the DOM
 		var articleTitle = JSON.stringify(NYT.response.docs[0].headline.main);
-		console.log(articleTitle);
-	//send to DOM
-	$('#articles').append(articleTitle);
+		var articleDate = JSON.stringify(NYT.response.docs[0].pub_date);
+		
+		//author section is buggy
+		// var articleAuthor = JSON.stringify(NYT.response.docs[0].byline.person.firstname);
+		// if (articleAuthor == null){
+		// 	articleAuthor = "";
+		// }
+		var articleSection = JSON.stringify(NYT.response.docs[0].section_name);
+		//send to DOM
+		$('.title').append(articleTitle);
+		$('.section').append(articleSection);
+		$('.date').append(articleDate);
 	})
 
 });
